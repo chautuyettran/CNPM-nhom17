@@ -1,0 +1,250 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #f4f5f7;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 100vh;
+}
+
+/* Container */
+
+.profile-container {
+
+    width: 500px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-header i {
+    font-size: 100px;
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.profile-header h1 {
+    font-size: 30px;
+}
+
+/* Form */
+
+.profile-item {
+    margin-bottom: 20px;
+}
+
+.profile-item label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.profile-item input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+}
+
+/* Buttons */
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.save-btn,
+.back-btn {
+
+    flex: 1;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.save-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.save-btn:hover {
+    background: #1d4ed8;
+}
+
+.back-btn {
+    background: #e5e7eb;
+}
+
+.back-btn:hover {
+    background: #d1d5db;
+}
+
+/* Avatar */
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#avatarPreview {
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 4px solid #2563eb;
+
+    margin-bottom: 15px;
+}
+
+.avatar-btn {
+
+    display: block;
+
+    margin: 10px auto 0;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.avatar-btn:hover {
+    background: #1d4ed8;
+}
+
+/* User */
+
+.user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+}
+
+/* Avatar */
+
+#navbarAvatar {
+
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 2px solid #2563eb;
+
+    display: block;
+}
+
+#navbarAvatar {
+
+    width: 28px;
+
+    height: 28px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+#navbarAvatar {
+
+    width: 34px;
+
+    height: 34px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 1px solid #d1d5db;
+}
+
+/* Delete Avatar */
+
+.delete-avatar-btn {
+
+    display: block;
+
+    margin: 10px auto 0;
+
+    padding: 10px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #ef4444;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.delete-avatar-btn:hover {
+
+    background: #dc2626;
+}

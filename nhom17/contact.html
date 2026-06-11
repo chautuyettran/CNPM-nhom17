@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - ViệcFlow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* CSS nội bộ giúp dễ quản lý và đồng bộ trực tiếp với phong cách thiết kế ViệcFlow */
+        :root {
+            --primary-color: #007bff;
+            --primary-hover: #0056b3;
+            --bg-color: #f4f6f9;
+            --text-color: #333;
+            --text-muted: #666;
+            --white: #fff;
+            --border-color: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR (Đồng bộ với cấu trúc welcome.html) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .navbar .nav-right a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-right a:hover {
+            color: var(--primary-color);
+        }
+
+        .navbar .nav-right .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        .navbar .nav-right .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* MAIN CONTENT LAYOUT */
+        .contact-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* BÊN TRÁI: THÔNG TIN LIÊN HỆ */
+        .contact-info {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info h2 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+
+        .contact-info p {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .info-item i {
+            font-size: 20px;
+            color: var(--primary-color);
+            width: 45px;
+            height: 45px;
+            background-color: #e6f2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .info-text h4 {
+            font-size: 16px;
+            margin-bottom: 2px;
+            color: var(--text-color);
+        }
+
+        .info-text p {
+            margin-bottom: 0;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* BÊN PHẢI: FORM CỦA KHÁCH HÀNG */
+        .contact-form {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form h3 {
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        /* Đồng bộ cấu trúc .input-group từ auth.css */
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+        }
+
+        .input-group input,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 12px 12px 45px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            outline: none;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group textarea {
+            padding-left: 15px; /* Textarea không cần icon căn giữa thụt lề sâu */
+            height: 150px;
+            resize: none;
+        }
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Khu vực thông báo (Đồng bộ style từ auth.js) */
+        #thongbao {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .thanhcong {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .loi {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* FOOTER (Đồng bộ với welcome.html) */
+        .footer {
+            background-color: var(--white);
+            padding: 20px 10%;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo" onclick="window.location.href='welcome.html'">🚀 ViệcFlow</div>
+        <div class="nav-right">
+            <a href="welcome.html">Trang chủ</a>
+            <a href="login.html">Đăng nhập</a>
+            <a href="register.html" class="btn-primary">Đăng ký</a>
+        </div>
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-info">
+            <h2>Liên hệ với chúng tôi</h2>
+            <p>Bạn có câu hỏi, góp ý xây dựng hoặc gặp sự cố kỹ thuật với hệ thống quản lý công việc ViệcFlow? Hãy gửi thông tin cho chúng tôi, đội ngũ hỗ trợ sẽ phản hồi trong vòng 24 giờ.</p>
+
+            <div class="info-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div class="info-text">
+                    <h4>Email Hỗ Trợ</h4>
+                    <p>supportviecflow@gmail.com.vn</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fa-solid fa-phone"></i>
+                <div class="info-text">
+                    <h4>Hotline Chăm Sóc Khách Hàng</h4>
+                    <p>1900 7979 (8:00 - 17:30 hằng ngày)</p>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div class="info-text">
+                    <h4>Văn phòng làm việc</h4>
+                    <p>Tòa nhà 17, Đường Phạm Ngũ Lão, phường Trà Vinh, tỉnh Vĩnh Long</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h3>Gửi lời nhắn cho ViệcFlow</h3>
+
+            <div class="input-group">
+                <i class="fa fa-user"></i>
+                <input id="hoten" type="text" placeholder="Họ và tên của bạn">
+            </div>
+
+            <div class="input-group">
+                <i class="fa fa-envelope"></i>
+                <input id="email" type="email" placeholder="Email liên hệ">
+            </div>
+
+            <div class="input-group">
+                <textarea id="loinhan" placeholder="Nhập nội dung lời nhắn hoặc góp ý của bạn tại đây..."></textarea>
+            </div>
+
+            <button class="submit-btn" onclick="guiLienHe()">Gửi thông tin</button>
+
+            <div id="thongbao"></div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© 2026 ViệcFlow. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="welcome.html">Trang chủ</a>
+                <a href="policy.html">Chính sách bảo mật</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="D:\nhom17\js\api.js"></script>
+    <script>
+        async function guiLienHe() {
+            const hoten = document.getElementById("hoten").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const loinhan = document.getElementById("loinhan").value.trim();
+
+            if (!hoten || !email || !loinhan) {
+                hienThiThongBao("Vui lòng nhập đầy đủ thông tin", "loi");
+                return;
+            }
+
+            if (!email.includes("@")) {
+                hienThiThongBao("Email không hợp lệ", "loi");
+                return;
+            }
+
+            try {
+                // Tận dụng hàm request() có sẵn trong file api.js để kết nối với Backend của bạn
+                // Giả định backend của bạn có một endpoint là "/auth/contact" hoặc "/contact"
+                /* await request("/contact", "POST", {
+                    username: hoten,
+                    email: email,
+                    message: loinhan
+                }); 
+                */
+
+                hienThiThongBao("Gửi lời nhắn thành công! Cảm ơn ý kiến đóng góp của bạn.", "thanhcong");
+
+                // Tiến hành reset form sau khi gửi thành công
+                document.getElementById("hoten").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("loinhan").value = "";
+
+            } catch (err) {
+                // Lỗi kết nối hoặc xử lý server đã được tự động hiển thị qua hienThiLoi() trong api.js
+                hienThiThongBao("Không thể kết nối đến máy chủ liên hệ. Vui lòng thử lại.", "loi");
+            }
+        }
+
+        // Đồng bộ hành vi giao diện tương tự auth.js
+        function hienThiThongBao(msg, type) {
+            const tb = document.getElementById("thongbao");
+            tb.innerText = msg;
+            tb.className = type; // Nhận class 'thanhcong' hoặc 'loi'
+            tb.style.display = "block";
+
+            setTimeout(() => {
+                tb.style.display = "none";
+            }, 3000);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,274 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI';
+    background: #f4f5f7;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: white;
+    align-items: center;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.nav-right a {
+    margin-left: 15px;
+    text-decoration: none;
+    color: #333;
+}
+
+/* BUTTON */
+.btn-primary {
+    background: #0052cc;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 6px;
+}
+
+.btn-main {
+    background: #0052cc;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.btn-sub {
+    border: 1px solid #0052cc;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #0052cc;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    padding: 60px 40px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-left {
+    width: 50%;
+}
+
+.hero-left h1 {
+    font-size: 42px;
+}
+
+.hero-left span {
+    color: #0052cc;
+}
+
+.hero-left p {
+    margin: 20px 0;
+    color: #555;
+}
+
+.hero-right img {
+    width: 500px;
+}
+
+/* FEATURES */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px;
+}
+
+.feature {
+    background: white;
+    padding: 30px;
+    width: 250px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+/* CTA */
+.cta {
+    text-align: center;
+    padding: 60px;
+    background: #0052cc;
+    color: white;
+}
+
+/* FOOTER */
+.footer {
+    background: #172b4d;
+    color: white;
+    padding: 40px 20px;
+}
+
+/* TOP */
+.footer-top {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* BOTTOM */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #334;
+    padding-top: 20px;
+}
+
+/* LINKS */
+.footer-links a {
+    margin-left: 15px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+/* ===== GLOBAL ===== */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ===== HERO RESPONSIVE ===== */
+.hero {
+    display: flex;
+    padding: 60px 40px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* ===== FEATURES ===== */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px;
+    flex-wrap: wrap; /* quan trọng */
+}
+
+/* ===== TABLET ===== */
+@media (max-width: 1024px) {
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left {
+        width: 100%;
+    }
+
+    .hero-right img {
+        width: 80%;
+    }
+
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+    /* NAVBAR */
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .nav-right {
+        display: flex;
+        gap: 10px;
+    }
+
+    /* HERO */
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero-left h1 {
+        font-size: 28px;
+    }
+
+    .hero-left p {
+        font-size: 14px;
+    }
+
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-main,
+    .btn-sub {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* IMAGE */
+    .hero-right img {
+        width: 100%;
+    }
+
+    /* FEATURES */
+    .features {
+        padding: 30px 20px;
+    }
+
+    .feature {
+        width: 100%;
+    }
+
+    /* FOOTER */
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links a {
+        margin: 0;
+    }
+
+    .social {
+        justify-content: center;
+        display: flex;
+        gap: 15px;
+    }
+
+}
+
+/* ===== SMALL MOBILE ===== */
+@media (max-width: 480px) {
+
+    .hero-left h1 {
+        font-size: 24px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+}

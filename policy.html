@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chính sách và Điều khoản - ViệcFlow</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --primary-hover: #0056b3;
+            --bg-color: #f4f6f9;
+            --text-color: #333;
+            --text-muted: #666;
+            --white: #fff;
+            --border-color: #ddd;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* NAVBAR (Đồng bộ hệ thống) */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 10%;
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        .navbar .nav-right a {
+            text-decoration: none;
+            color: var(--text-color);
+            margin-left: 20px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-right a:hover {
+            color: var(--primary-color);
+        }
+
+        .navbar .nav-right .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white) !important;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+
+        /* LAYOUT CHÍNH SÁCH */
+        .policy-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .policy-container {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-menu {
+                position: static !important;
+            }
+        }
+
+        /* MENU ĐIỀU HƯỚNG NHANH BÊN TRÁI */
+        .sidebar-menu {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-menu h3 {
+            font-size: 16px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .sidebar-menu ul {
+            list-style: none;
+        }
+
+        .sidebar-menu ul li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar-menu ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 15px;
+            display: block;
+            padding: 6px 0;
+            transition: color 0.2s;
+        }
+
+        .sidebar-menu ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* NỘI DUNG VĂN BẢN CHÍNH */
+        .policy-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            line-height: 1.7;
+        }
+
+        .policy-content h1 {
+            color: var(--text-color);
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .policy-content .update-date {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .policy-content h2 {
+            color: var(--primary-color);
+            font-size: 22px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .policy-content p {
+            color: #444;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .policy-content ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #444;
+        }
+
+        .policy-content ul li {
+            margin-bottom: 8px;
+        }
+
+        /* FOOTER (Đồng bộ hệ thống) */
+        .footer {
+            background-color: var(--white);
+            padding: 20px 10%;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo" onclick="window.location.href='welcome.html'">🚀 ViệcFlow</div>
+        <div class="nav-right">
+            <a href="welcome.html">Trang chủ</a>
+            <a href="contact.html">Liên hệ</a>
+            <a href="login.html">Đăng nhập</a>
+            <a href="register.html" class="btn-primary">Đăng ký</a>
+        </div>
+    </div>
+
+    <div class="policy-container">
+
+        <aside class="sidebar-menu">
+            <h3>Mục lục bài viết</h3>
+            <ul>
+                <li><a href="#thu-thap"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> 1. Thu thập dữ liệu</a></li>
+                <li><a href="#su-dung"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> 2. Sử dụng thông tin</a></li>
+                <li><a href="#bao-mat"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> 3. Bảo mật tài khoản</a></li>
+                <li><a href="#trach-nhiem"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> 4. Trách nhiệm người dùng</a></li>
+                <li><a href="#thay-doi"><i class="fa-solid fa-chevron-right" style="font-size: 10px; margin-right: 5px;"></i> 5. Thay đổi điều khoản</a></li>
+            </ul>
+        </aside>
+
+        <main class="policy-content">
+            <h1>Chính sách bảo mật & Điều khoản</h1>
+            <p class="update-date">Cập nhật lần cuối: Ngày 18 tháng 05 năm 2026</p>
+
+            <p>Chào mừng bạn đến với <strong>ViệcFlow</strong>. Chúng tôi cam kết bảo vệ tối đa quyền riêng tư cá nhân và bảo mật toàn bộ dữ liệu quản lý công việc của bạn khi sử dụng nền tảng của chúng tôi. Vui lòng đọc kỹ các điều khoản dưới đây trước khi bắt đầu tạo tài khoản.</p>
+
+            <h2 id="thu-thap">1. Thu thập thông tin cá nhân</h2>
+            <p>Khi bạn tiến hành tạo tài khoản trên hệ thống ViệcFlow, các dữ liệu cơ bản sau sẽ được thu thập nhằm mục đích định danh và vận hành hệ thống:</p>
+            <ul>
+                <li>Họ và tên người dùng (dùng để hiển thị trong phân quyền và giao việc nhóm).</li>
+                <li>Địa chỉ Email cá nhân hoặc Email doanh nghiệp (dùng làm tên đăng nhập tài khoản).</li>
+                <li>Mật khẩu mã hóa cá nhân.</li>
+                <li>Hình ảnh đại diện (Avatar) nếu người dùng chủ động tải lên tại trang tài khoản.</li>
+            </ul>
+
+            <h2 id="su-dung">2. Cách thức sử dụng thông tin</h2>
+            <p>Mục đích ViệcFlow thu thập và xử lý thông tin cá nhân của bạn bao gồm:</p>
+            <ul>
+                <li>Cung cấp và duy trì các tính năng quản lý công việc cốt lõi (Bảng công việc, Việc cá nhân, Việc nhóm).</li>
+                <li>Hỗ trợ phân quyền người dùng chuẩn xác khi truy cập vào dữ liệu dự án của đội nhóm.</li>
+                <li>Gửi các thông báo quan trọng liên quan đến cập nhật tính năng, bảo trì máy chủ hoặc phản hồi từ mục liên hệ.</li>
+            </ul>
+
+            <h2 id="bao-mat">3. Cam kết bảo mật dữ liệu</h2>
+            <p>Dữ liệu của bạn (bao gồm tiêu đề công việc, mô tả công việc, danh sách nhóm) được bảo vệ bằng cơ chế mã hóa tiêu chuẩn và mã xác thực mã hóa Bearer Token thông qua các yêu cầu kết nối API nội bộ. Chúng tôi cam kết không mua bán, trao đổi hoặc tiết lộ thông tin cá nhân của bạn cho bất kỳ bên thứ ba nào khi chưa có sự đồng ý cụ thể.</p>
+
+            <h2 id="trach-nhiem">4. Trách nhiệm của người dùng</h2>
+            <p>Khi đồng ý tham gia hệ thống quản lý công việc ViệcFlow, bạn cam kết thực hiện đúng các quy định an toàn thông tin cá nhân sau:</p>
+            <ul>
+                <li>Tự chịu trách nhiệm bảo mật chuỗi mật khẩu cá nhân và thông tin tài khoản đăng nhập.</li>
+                <li>Không sử dụng hệ thống để lưu trữ, truyền tải các nội dung độc hại, vi phạm pháp luật hoặc phá hoại tài nguyên của tổ chức khác.</li>
+                <li>Đăng xuất khỏi hệ thống hoàn toàn khi sử dụng các thiết bị máy tính công cộng để tránh rò rỉ Token đăng nhập.</li>
+            </ul>
+
+            <h2 id="thay-doi">5. Thay đổi điều khoản chính sách</h2>
+            <p>ViệcFlow có quyền chỉnh sửa, bổ sung nội dung trang chính sách bảo mật này bất cứ lúc nào để phù hợp với định hướng nâng cấp hệ thống. Mọi thay đổi lớn sẽ được cập nhật công khai tại trang này và hiển thị ngày cập nhật cụ thể để người dùng tiện theo dõi.</p>
+        </main>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-bottom">
+            <p>© 2026 ViệcFlow. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="welcome.html">Trang chủ</a>
+                <a href="contact.html">Liên hệ</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

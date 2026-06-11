@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công việc cá nhân</title>
+
+    <link rel="stylesheet" href="css/personal.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <aside class="sidebar">
+            <h1>QUẢN LÝ CÔNG VIỆC</h1>
+
+            <ul class="menu">
+                <li onclick="window.location.href='index.html'">
+                    <i class="fa-solid fa-table-columns"></i>
+                    Bảng
+                </li>
+
+                <li class="active">
+                    <i class="fa-solid fa-user"></i>
+                    Cá nhân
+                </li>
+
+                <li onclick="window.location.href='group.html'">
+                    <i class="fa-solid fa-users"></i>
+                    Nhóm
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main">
+
+            <div class="topbar">
+                <h2>Công việc cá nhân</h2>
+            </div>
+
+            <div class="board">
+
+                <!-- TODO -->
+
+                <div class="column">
+
+                    <div class="column-header">
+
+                        <h3>CẦN LÀM</h3>
+
+                        <span id="todo-count">0</span>
+
+                    </div>
+
+                    <div class="task-list" id="todo">
+
+                    </div>
+
+                    <button class="add-btn" onclick="openModal('todo')">
+
+                        + Thêm thẻ
+
+                    </button>
+
+                </div>
+
+                <!-- DOING -->
+
+                <div class="column">
+
+                    <div class="column-header">
+
+                        <h3>ĐANG LÀM</h3>
+
+                        <span id="doing-count">0</span>
+
+                    </div>
+
+                    <div class="task-list" id="doing">
+
+                    </div>
+
+                    <button class="add-btn" onclick="openModal('doing')">
+
+                        + Thêm thẻ
+
+                    </button>
+
+                </div>
+
+                <!-- DONE -->
+
+                <div class="column">
+
+                    <div class="column-header">
+
+                        <h3>ĐÃ HOÀN THÀNH</h3>
+
+                        <span id="done-count">0</span>
+
+                    </div>
+
+                    <div class="task-list" id="done">
+
+                    </div>
+
+                    <button class="add-btn" onclick="openModal('done')">
+
+                        + Thêm thẻ
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Modal -->
+
+    <div class="modal" id="taskModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Công việc</h2>
+
+                <span class="close"
+                    onclick="closeModal()">
+                    &times;
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label>Tiêu đề</label>
+                <input type="text" id="title">
+            </div>
+
+            <div class="form-group">
+                <label>Mô tả</label>
+                <textarea id="description"></textarea>
+            </div>
+
+            <input type="hidden" id="status">
+
+            <button class="submit-btn"
+                onclick="saveTask()">
+                Lưu
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="js/personal.js"></script>
+
+</body>
+
+</html>

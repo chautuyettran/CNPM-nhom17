@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Task Manager</title>
+
+    <link rel="stylesheet" href="css\style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <h1>QUẢN LÝ CÔNG VIỆC</h1>
+
+            <ul class="menu">
+
+                <li class="active">
+
+                    <i class="fa-solid fa-table-columns"></i>
+
+                    Bảng
+
+                </li>
+
+                <li onclick="window.location.href='personal.html'">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    Cá nhân
+
+                </li>
+
+                <li onclick="window.location.href='group.html'">
+
+                    <i class="fa-solid fa-users"></i>
+
+                    Nhóm
+
+                </li>
+
+            </ul>
+
+        </aside>
+
+        <!-- Main -->
+
+        <main class="main">
+
+            <!-- Top -->
+
+            <div class="topbar">
+
+                <h2>Bảng công việc</h2>
+
+                <div class="user" onclick="window.location.href='user.html'">
+
+                    <img id="navbarAvatar" src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
+
+                    <span id="currentUserName">
+
+                        Người dùng
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <!-- Board -->
+
+            <div class="board">
+
+                <!-- TODO -->
+
+                <div class="column">
+
+                    <div class="column-header">
+
+                        <h3>CẦN LÀM</h3>
+
+                        <span id="todo-count">0</span>
+
+                    </div>
+
+                    <div class="task-list" id="todo">
+
+                    </div>
+
+                    <button class="add-btn" onclick="openModal('todo')">
+
+                        + Thêm thẻ
+
+                    </button>
+
+                </div>
+
+                <!-- DOING -->
+
+                <div class="column">
+
+                    <div class="column-header">
+
+                        <h3>ĐANG LÀM</h3>
+
+                        <span id="doing-count">0</span>
+
+                    </div>
+
+                    <div class="task-list" id="doing">
+
+                    </div>
+
+                    <button class="add-btn" onclick="openModal('doing')">
+
+                        + Thêm thẻ
+
+                    </button>
+
+                </div>
+
+                <!-- DONE -->
+
+                <div class="column">
+
+                    <div class="column-header">
+
+                        <h3>ĐÃ HOÀN THÀNH</h3>
+
+                        <span id="done-count">0</span>
+
+                    </div>
+
+                    <div class="task-list" id="done">
+
+                    </div>
+
+                    <button class="add-btn" onclick="openModal('done')">
+
+                        + Thêm thẻ
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Modal -->
+
+    <div class="modal" id="taskModal">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2>Thêm công việc</h2>
+
+                <span class="close" onclick="closeModal()">
+
+                    &times;
+
+                </span>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Tiêu đề</label>
+
+                <input type="text" id="taskTitle" placeholder="Nhập tiêu đề">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Mô tả</label>
+
+                <textarea id="taskDescription" placeholder="Nhập nội dung">
+
+                        </textarea>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Loại công việc</label>
+
+                <select id="taskType">
+
+                    <option value="Cá nhân">
+                        Cá nhân
+                    </option>
+
+                    <option value="Nhóm">
+                        Nhóm
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Trạng thái</label>
+
+                <select id="taskStatus">
+
+                    <option value="todo">
+                        TODO
+                    </option>
+
+                    <option value="doing">
+                        DOING
+                    </option>
+
+                    <option value="done">
+                        DONE
+                    </option>
+
+                </select>
+
+            </div>
+
+            <button class="submit-btn" onclick="createTask()">
+
+                Thêm công việc
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="js\index.js"></script>
+    <script>
+        window.onload = () => {
+            const role = localStorage.getItem("role");
+            if (role === "admin") {
+                document.getElementById("admin-button").style.display = "block"; // Hiển thị nút Admin
+            }
+        };
+    </script>
+
+</body>
+
+</html>
