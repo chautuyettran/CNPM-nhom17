@@ -45,3 +45,13 @@ app.use(
 app.listen(PORT, () => {
     console.log(`🚀 Server running on port ${PORT}`);
 });
+
+const db = require('./db');
+
+// Ví dụ: Lấy tất cả công việc
+app.get('/tasks', (req, res) => {
+  db.query('SELECT * FROM tasks', (err, results) => {
+    if (err) return res.status(500).send(err);
+    res.json(results);
+  });
+});
