@@ -6,12 +6,9 @@ async function request(endpoint, method = "GET", data = null) {
         method,
         headers: { "Content-Type": "application/json" }
     };
-    // ... phần còn lại giữ nguyên
-    
-    // Khi gọi API_URL + endpoint:
-    // "" + "/auth/login" -> "/auth/login" (Trình duyệt tự hiểu là gửi tới server đang phục vụ trang này)
+
     const response = await fetch(API_URL + endpoint, options);
-    // ...
+
 }
 
 async function request(
